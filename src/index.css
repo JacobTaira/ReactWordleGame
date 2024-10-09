@@ -80,12 +80,12 @@ h1 {
   transition: all 0.3s ease-in;
 }
 .keypad > div.yellow {
-  background: #e2cc68;
+  background: #bca53b;
   color: #fff;
   transition: all 0.3s ease-in;
 }
 .keypad > div.grey {
-  background: #a1a1a1;
+  background: #787878;
   color: #fff;
   transition: all 0.3s ease-in;
 }
