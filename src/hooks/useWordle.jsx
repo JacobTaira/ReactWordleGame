@@ -54,26 +54,24 @@ const useWordle = (solution) => {
       return prevTurn + 1
     })
     setUsedKeys(prevUsedKeys => {
-      let newKeys = {...prevUsedKeys}
-
-      formattedGuess.forEach((l) => {
-        const currentColor = newKeys[l.key]
+      formattedGuess.forEach(l => {
+        const currentColor = prevUsedKeys[l.key]
 
         if (l.color === 'green') {
-          newKeys[l.key] = 'green'
+          prevUsedKeys[l.key] = 'green'
           return
         }
         if (l.color === 'yellow' && currentColor !== 'green') {
-          newKeys[l.key] = 'yellow'
+          prevUsedKeys[l.key] = 'yellow'
           return
         }
         if (l.color === 'grey' && currentColor !== ('green' || 'yellow')) {
-          newKeys[l.key] = 'grey'
+          prevUsedKeys[l.key] = 'grey'
           return
         }
       })
 
-      return newKeys
+      return prevUsedKeys
     })
     setCurrentGuess('')
   }
@@ -81,7 +79,6 @@ const useWordle = (solution) => {
   // handle keyup event & track current guess
   // if user presses enter, add the new guess
   const handleKeyup = ({ key }) => {
-    console.log(key)
     if (key === 'Enter') {
       // only add guess if turn is less than 5
       if (turn > 5) {
@@ -95,7 +92,7 @@ const useWordle = (solution) => {
       }
       // check word is 5 chars
       if (currentGuess.length !== 5) {
-        alert('your word must be 5 letters.')
+        alert('word must be 5 chars.')
         return
       }
       const formatted = formatGuess()
@@ -114,4 +111,5 @@ const useWordle = (solution) => {
 
   return {turn, currentGuess, guesses, isCorrect, usedKeys, handleKeyup}
 }
+
 export default useWordle
