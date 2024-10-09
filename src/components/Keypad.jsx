@@ -5,10 +5,10 @@ export default function Keypad({ usedKeys }) {
   console.log("USED KEYS: ", usedKeys)
 
   useEffect(() => {
-    fetch('http://localhost:3001/letters')
+    fetch('/data/db.json')
       .then(res => res.json())
       .then(json => {
-        setLetters(json)
+        setLetters(json.letters)
       })
   }, [])
 
