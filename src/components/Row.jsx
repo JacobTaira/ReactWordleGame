@@ -1,11 +1,7 @@
 import React from 'react'
 
-interface RowProps {
-    guess : string[],
-    currentGuess: string
-}
+export default function Row({ guess, currentGuess }) {
 
-export default function Row({ guess, currentGuess }: RowProps) {
   if (guess) {
     return (
       <div className="row past">
