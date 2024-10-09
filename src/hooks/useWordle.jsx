@@ -35,7 +35,6 @@ const useWordle = (solution) => {
     return formattedGuess
   }
 
-
   // add a new guess to the guesses state
   // update the isCorrect state if the guess is correct
   // add one to the turn state
@@ -55,24 +54,26 @@ const useWordle = (solution) => {
       return prevTurn + 1
     })
     setUsedKeys(prevUsedKeys => {
-      formattedGuess.forEach(l => {
-        const currentColor = prevUsedKeys[l.key]
+      let newKeys = {...prevUsedKeys}
+
+      formattedGuess.forEach((l) => {
+        const currentColor = newKeys[l.key]
 
         if (l.color === 'green') {
-          prevUsedKeys[l.key] = 'green'
+          newKeys[l.key] = 'green'
           return
         }
         if (l.color === 'yellow' && currentColor !== 'green') {
-          prevUsedKeys[l.key] = 'yellow'
+          newKeys[l.key] = 'yellow'
           return
         }
         if (l.color === 'grey' && currentColor !== ('green' || 'yellow')) {
-          prevUsedKeys[l.key] = 'grey'
+          newKeys[l.key] = 'grey'
           return
         }
       })
 
-      return prevUsedKeys
+      return newKeys
     })
     setCurrentGuess('')
   }
@@ -84,17 +85,17 @@ const useWordle = (solution) => {
     if (key === 'Enter') {
       // only add guess if turn is less than 5
       if (turn > 5) {
-        console.log('you used all your guesses!')
+        alert('you used all your guesses!')
         return
       }
       // do not allow duplicate words
       if (history.includes(currentGuess)) {
-        console.log('you already tried that word.')
+        alert('you already tried that word.')
         return
       }
       // check word is 5 chars
       if (currentGuess.length !== 5) {
-        console.log('word must be 5 chars.')
+        alert('your word must be 5 letters.')
         return
       }
       const formatted = formatGuess()
