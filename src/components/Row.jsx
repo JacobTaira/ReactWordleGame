@@ -16,7 +16,7 @@ export default function Row({ guess, currentGuess }) {
     let letters = currentGuess.split('')
 
     return (
-      <div className="row current">
+      <div className="row current" style={{color: '#FFFFFF'}}>
         {letters.map((letter, i) => (
           <div key={i} className="filled">{letter}</div>
         ))}

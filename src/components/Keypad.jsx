@@ -17,7 +17,6 @@ export default function Keypad({ usedKeys }) {
       {letters && letters.map(l => {
         const color = usedKeys[l.key]
         console.log(usedKeys[l.key])
-        console.log(`Key: ${l.key}, Color: ${color}`);
         return (
           <div key={l.key} className={color}>{l.key}</div>
         )

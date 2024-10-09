@@ -15,8 +15,8 @@ function App() {
   }, [setSolution])
 
   return (
-    <div className="App">
-      <h1>Wordle Unlimited</h1>
+    <div className="App" style={{background: '#151515', height: window.innerHeight}}>
+      <h1 style={{color:'#FFFFFF'}}>Wordle UNLIMITED</h1>
       {solution && <Wordle solution={solution} />}
     </div>
   )
