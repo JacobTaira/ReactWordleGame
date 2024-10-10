@@ -68,7 +68,7 @@ h1 {
   margin: 5px;
   width: 40px;
   height: 50px;
-  background: #222222;
+  background: #787878;
   color:#ffffff;
   display: inline-block;
   border-radius: 6px;
@@ -85,7 +85,7 @@ h1 {
   transition: all 0.3s ease-in;
 }
 .keypad > div.grey {
-  background: #787878;
+  background: #222222;
   color: #fff;
   transition: all 0.3s ease-in;
 }
